@@ -29,7 +29,8 @@ function primi(){
 
 
 function AAA(){
-  kk=slider.value();
+
+kk=slider.value();
   button.remove();
   slider.remove();
    w=(2*kk+1);
@@ -38,7 +39,7 @@ function AAA(){
    heigth=h*k;
 
   createCanvas(windth,heigth);
-  background(100,100,100,100);
+  pixelDensity(5);
   primi();
   for(i=0;i<h;i++){
     A[i]=new Array(w);
@@ -90,13 +91,16 @@ function AAA(){
   for(i=0;i<h;i++){
     for(j=0;j<w;j++){
       if(B[A[i][j]]){
-        stroke('purple');
-        strokeWeight(k);
-        point(j*k , i*k);
+          fill(0,255,100,255);
+          noStroke();
+          square(j*k,i*k, k);
+      }else{
+          fill(20,20,100,255);
+       noStroke();
+       square(j*k,i*k, k);
       }
     }
   }
-
 
 }
 
@@ -106,13 +110,12 @@ function setup() {
   createCanvas(windth,heigth);
   background(100,100,100,100);
 
-  slider=createSlider(1,1000,20,1);
+  slider=createSlider(1,1300,20,1);
   slider.position(10,10);
 
   button = createButton('Disegna');
   button.position(19, 100);
   button.mousePressed(AAA);
-
 
 
 
